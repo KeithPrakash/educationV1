@@ -1,6 +1,5 @@
 # educationV1
 
-# Project Name
 
 CourseHub - A Mobile App for Buying and Selling Courses
 
