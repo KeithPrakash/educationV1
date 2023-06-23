@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { Rating, AirbnbRating } from "react-native-ratings";
+
 import AppLoading from "expo-app-loading";
 import {
   useFonts,
@@ -26,8 +26,8 @@ import {
   Roboto_900Black_Italic,
 } from "@expo-google-fonts/roboto";
 
-const FreeCourseCard = () => {
-  let[fontsLoaded] = useFonts({
+const DegreeCard = () => {
+  let [fontsLoaded] = useFonts({
     Roboto_100Thin,
     Roboto_100Thin_Italic,
     Roboto_300Light,
@@ -41,7 +41,6 @@ const FreeCourseCard = () => {
     Roboto_900Black,
     Roboto_900Black_Italic,
   });
-
   return (
     <View style={styles.populorCourseCard}>
       <View style={styles.courseImageOuter}>
@@ -49,14 +48,15 @@ const FreeCourseCard = () => {
           source={require("../assets/jason-goodman-Oalh2MojUuk-unsplash.jpg")}
           style={{
             width: "100%",
-            height: 70,
+            height: 80,
+            alignSelf: "center",
             borderRadius: 10,
           }}
         />
       </View>
       <View style={styles.cardBottom}>
-        <Text style={{ fontSize: 14, fontFamily: "Roboto_500Medium" }}>
-          Data Science
+        <Text style={{ fontSize: 14, fontFamily: "Roboto_500Medium"}}>
+          Global Masters of Public Health
         </Text>
         <Text
           style={{
@@ -65,16 +65,8 @@ const FreeCourseCard = () => {
             opacity: 0.75,
           }}
         >
-          John Hopkins University Course
+          Imperial College London
         </Text>
-        <View>
-          <Rating
-            ratingCount={5}
-            readonly="true"
-            imageSize={10}
-            style={{ paddingTop: 5, paddingBottom: 5 }}
-          />
-        </View>
       </View>
     </View>
   );
@@ -82,28 +74,31 @@ const FreeCourseCard = () => {
 const styles = StyleSheet.create({
   populorCourseCard: {
     display: "flex",
-    flexDirection: "row",
-    // alignItems: "center",
-    // justifyContent: "center",
-    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "48.8%",
     maxHeight: "auto",
+    // borderColor: "blue",
+    // borderWidth: 1,
     backgroundColor: "#FFFFFF",
     borderRadius: 14,
     padding: 8,
     marginTop: 8,
   },
   courseImageOuter: {
-    width: "30%",
-    resizeMode: "cover",
-   
+    width: "100%",
+    resizeMode: "contain",
   },
   cardBottom: {
+  
+    width: "100%",
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
-    paddingTop: 10,
-    paddingLeft:10,
- 
+    paddingTop: 16,
+    // borderColor: "blue",
+    // borderWidth: 1,
+    paddingBottom: 8,
   },
 });
-export default FreeCourseCard;
+export default DegreeCard;

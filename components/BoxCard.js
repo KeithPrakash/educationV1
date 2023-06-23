@@ -10,8 +10,38 @@ import {
   View,
 } from "react-native";
 import { Rating, AirbnbRating } from "react-native-ratings";
-const BoxCard = () => {
+import AppLoading from "expo-app-loading";
+import {
+  useFonts,
+  Roboto_100Thin,
+  Roboto_100Thin_Italic,
+  Roboto_300Light,
+  Roboto_300Light_Italic,
+  Roboto_400Regular,
+  Roboto_400Regular_Italic,
+  Roboto_500Medium,
+  Roboto_500Medium_Italic,
+  Roboto_700Bold,
+  Roboto_700Bold_Italic,
+  Roboto_900Black,
+  Roboto_900Black_Italic,
+} from "@expo-google-fonts/roboto";
 
+const BoxCard = () => {
+ let [fontsLoaded] = useFonts({
+   Roboto_100Thin,
+   Roboto_100Thin_Italic,
+   Roboto_300Light,
+   Roboto_300Light_Italic,
+   Roboto_400Regular,
+   Roboto_400Regular_Italic,
+   Roboto_500Medium,
+   Roboto_500Medium_Italic,
+   Roboto_700Bold,
+   Roboto_700Bold_Italic,
+   Roboto_900Black,
+   Roboto_900Black_Italic,
+ });
     return (
       <View style={styles.populorCourseCard}>
         <View style={styles.courseImageOuter}>
@@ -26,10 +56,16 @@ const BoxCard = () => {
           />
         </View>
         <View style={styles.cardBottom}>
-          <Text style={{ fontSize: 14, fontWeight: "600" }}>
+          <Text style={{ fontSize: 14, fontFamily: "Roboto_500Medium" }}>
             Google Data Analytics
           </Text>
-          <Text style={{ fontSize: 11, fontWeight: "400", opacity: 0.75 }}>
+          <Text
+            style={{
+              fontSize: 11,
+              fontFamily: "Roboto_400Regular",
+              opacity: 0.75,
+            }}
+          >
             Google Proffesi...
           </Text>
           <View>
@@ -44,29 +80,30 @@ const BoxCard = () => {
       </View>
     );
 }
- const styles= StyleSheet.create({
-    populorCourseCard: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "49.3%",
-    maxHeight: "auto",
-    // borderColor: "blue",
-    // borderWidth: 1,
-    backgroundColor: "#FFFFFF",
-    borderRadius:14,
-    padding:10,
-    marginTop:5
-  },
-  courseImageOuter: {
-    width:'100%',
-    resizeMode: "contain",
-  },
-  cardBottom: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems:'flex-start',
-    paddingTop:10,
-  },
- })
+ const styles = StyleSheet.create({
+   populorCourseCard: {
+     display: "flex",
+     alignItems: "center",
+     justifyContent: "center",
+     width: "48.8%",
+     maxHeight: "auto",
+     backgroundColor: "#FFFFFF",
+     borderRadius: 14,
+     padding: 8,
+     marginTop:8,
+   },
+   courseImageOuter: {
+     width: "100%",
+     resizeMode: "contain",
+   },
+   cardBottom: {
+     width:'100%',
+     display: "flex",
+     flexDirection: "column",
+     alignItems: "flex-start",
+     paddingTop: 16,
+    //  borderColor: "blue",
+    //  borderWidth: 1,
+   },
+ });
 export default BoxCard;

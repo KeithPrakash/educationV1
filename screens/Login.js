@@ -5,19 +5,62 @@ import {
   TouchableOpacity,
   TextInput,
   Image,
-  ScrollView
+  ScrollView,StatusBar
 } from "react-native";
 import { SafeAreaView } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
+import AppLoading from "expo-app-loading";
+import {
+  useFonts,
+  Roboto_100Thin,
+  Roboto_100Thin_Italic,
+  Roboto_300Light,
+  Roboto_300Light_Italic,
+  Roboto_400Regular,
+  Roboto_400Regular_Italic,
+  Roboto_500Medium,
+  Roboto_500Medium_Italic,
+  Roboto_700Bold,
+  Roboto_700Bold_Italic,
+  Roboto_900Black,
+  Roboto_900Black_Italic,
+} from "@expo-google-fonts/roboto";
+
 
 const Login = ({ navigation }) => {  
+   let [fontsLoaded] = useFonts({
+     Roboto_100Thin,
+     Roboto_100Thin_Italic,
+     Roboto_300Light,
+     Roboto_300Light_Italic,
+     Roboto_400Regular,
+     Roboto_400Regular_Italic,
+     Roboto_500Medium,
+     Roboto_500Medium_Italic,
+     Roboto_700Bold,
+     Roboto_700Bold_Italic,
+     Roboto_900Black,
+     Roboto_900Black_Italic,
+   });
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}
-    >
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+      <StatusBar
+        barStyle="dark-content"
+        color="black"
+        hidden={false}
+        backgroundColor={"#F1F1F1"}
+      />
       <View style={styles.topTextOuter}>
-        <Text style={{ textAlign: "center", fontSize: 16, fontWeight: 400 }}>
+        <Text
+          style={{
+            textAlign: "center",
+            fontSize: 16,
+            fontWeight: 400,
+            fontFamily: "Roboto_400Regular",
+          }}
+        >
           {"  "}Take the greatest courses available online from renowned
           universities and business partners.
         </Text>
@@ -31,8 +74,9 @@ const Login = ({ navigation }) => {
                 textAlign: "left",
                 left: 18,
                 color: "#000000",
-                fontSize: 16,
+                fontSize: 13,
                 opacity: 0.5,
+                fontFamily: "Roboto_400Regular",
               }}
             >
               Email Address
@@ -40,7 +84,7 @@ const Login = ({ navigation }) => {
           </View>
           <TextInput
             style={styles.textField}
-            textAlignVertical="top"
+            textAlignVertical="center"
             textAlign="left"
             autoComplete="email"
             keyboardType="email-address"
@@ -52,8 +96,9 @@ const Login = ({ navigation }) => {
                 textAlign: "left",
                 left: 18,
                 color: "#000000",
-                fontSize: 16,
+                fontSize: 13,
                 opacity: 0.5,
+                fontFamily: "Roboto_400Regular",
               }}
             >
               Password
@@ -61,7 +106,7 @@ const Login = ({ navigation }) => {
           </View>
           <TextInput
             style={styles.textField}
-            textAlignVertical="top"
+            textAlignVertical="center"
             textAlign="left"
           />
           <TouchableOpacity
@@ -72,11 +117,21 @@ const Login = ({ navigation }) => {
           </TouchableOpacity>
         </SafeAreaView>
         <View style={styles.createAcc}>
-          <Text style={{ fontSize: 16, color: "#004E3F" }}>
+          <Text
+            style={{
+              fontSize: 13,
+              color: "#004E3F",
+              fontFamily: "Roboto_400Regular",
+            }}
+          >
             New to Grainweed institute?{" "}
             <Text onPress={() => navigation.navigate("SignUp")}>
               <Text
-                style={{ fontSize: 16, fontWeight: "bold", color: "#004E3F" }}
+                style={{
+                  fontSize: 13,
+                  color: "#004E3F",
+                  fontFamily: "Roboto_500Medium",
+                }}
               >
                 Create an Account
               </Text>
@@ -112,14 +167,22 @@ const Login = ({ navigation }) => {
               textAlign: "center",
               opacity: 0.75,
               width: 305,
-              fontSize:13
+              fontSize: 13,
+              fontFamily: "Roboto_400Regular",
             }}
           >
             By Sign Up to create an account I accept Grainweed’s
-            <Text style={{ color: "#004E3FBF" }}>
+            <Text
+              style={{ color: "#004E3FBF", fontFamily: "Roboto_400Regular" }}
+            >
               Terms, Service, Privacy policy,{" "}
             </Text>
-            and <Text style={{ color: "#004E3FBF" }}>Honor code</Text>
+            and{" "}
+            <Text
+              style={{ color: "#004E3FBF", fontFamily: "Roboto_400Regular" }}
+            >
+              Honor code
+            </Text>
           </Text>
         </View>
       </View>
@@ -136,25 +199,26 @@ const styles = StyleSheet.create({
     padding: 0,
   },
   topTextOuter: {
+    fontFamily: "Roboto_400Regular",
     fontSize: 20,
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-end",
-    fontWeight: 400,
-    height: 250,
-    padding: 70,
-    paddingBottom: 40,
+    // height: 250,
+    marginTop:64,
+    padding:64,
+    paddingBottom: 32,
     color: "black",
   },
   loginFormOuter: {
-    paddingLeft: 25,
-    paddingRight: 25,
+    paddingLeft: 24,
+    paddingRight: 24,
     height: "auto",
   },
   form: {
     display: "flex",
     flexDirection: "column",
-    paddingTop: 30,
+    paddingTop: 32,
     alignItems: "center",
 
     justifyContent: "center",
@@ -162,41 +226,42 @@ const styles = StyleSheet.create({
   textField: {
     borderRadius: 16,
     width: "100%",
-    height: 58,
-    margin: 7,
+    height: 56,
+    margin: 8,
     backgroundColor: "#ECECEC",
     paddingLeft: 16,
     fontSize: 16,
+    fontFamily: "Roboto_400Regular",
   },
   loginButton: {
-    height: 58,
+    height: 56,
     width: "100%",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#004E3F",
-    fontStyle: "normal",
+    fontFamily: "Roboto_400Regular",
     fontWeight: "400",
     fontSize: 20,
     color: "white",
     letterSpacing: 1,
-    marginTop: 80,
+    marginTop: 64,
     borderRadius: 16,
   },
   LoginButtonText: {
-    fontWeight: "400",
-    fontSize: 20,
+    fontWeight: "600",
+    fontSize: 16,
     color: "white",
     letterSpacing: 1,
   },
   createAcc: {
-    paddingTop: 10,
+    paddingTop:8,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
   },
   loginIcons: {
-    marginTop: 15,
+    marginTop: 16,
     height: 48,
     display: "flex",
     alignItems: "center",
@@ -210,23 +275,22 @@ const styles = StyleSheet.create({
     width: 24,
   },
   iconOuter: {
-    padding: 12,
+    padding: 8,
     backgroundColor: "#ECECEC",
-    margin: 7,
+    margin: 8,
     borderRadius: 16,
   },
   bottomDesc: {
     flex: 1,
-
     alignItems: "center",
     justifyContent: "center",
     display: "flex",
     // borderWidth: 1,
     // borderColor: "red",
-    marginTop: 5,
-    paddingTop: 45,
-    padding: 50,
-    paddingBottom: 30,
+    marginTop: 8,
+    paddingTop: 32,
+    padding: 32,
+    paddingBottom: 24,
   },
 });
 export default Login;

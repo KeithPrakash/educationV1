@@ -3,9 +3,39 @@ import {useRef,useEffect,useState} from 'react';
 import {Animated,View, Text, StyleSheet,TouchableOpacity}from 'react-native';
 import AppIntroSlider from "react-native-app-intro-slider";
 import { useNavigation } from "@react-navigation/native";
+import AppLoading from "expo-app-loading";
+import {
+  useFonts,
+  Roboto_100Thin,
+  Roboto_100Thin_Italic,
+  Roboto_300Light,
+  Roboto_300Light_Italic,
+  Roboto_400Regular,
+  Roboto_400Regular_Italic,
+  Roboto_500Medium,
+  Roboto_500Medium_Italic,
+  Roboto_700Bold,
+  Roboto_700Bold_Italic,
+  Roboto_900Black,
+  Roboto_900Black_Italic,
+} from "@expo-google-fonts/roboto";
 
 const Slider = () => {
- 
+let [fontsLoaded] = useFonts({
+  Roboto_100Thin,
+  Roboto_100Thin_Italic,
+  Roboto_300Light,
+  Roboto_300Light_Italic,
+  Roboto_400Regular,
+  Roboto_400Regular_Italic,
+  Roboto_500Medium,
+  Roboto_500Medium_Italic,
+  Roboto_700Bold,
+  Roboto_700Bold_Italic,
+  Roboto_900Black,
+  Roboto_900Black_Italic,
+});
+
     const navigation = useNavigation();
     const startValue = useRef(new Animated.Value(0)).current;
     const endValue = 1;
@@ -17,7 +47,6 @@ const Slider = () => {
         useNativeDriver: true,
       }).start();
     }, [startValue]);
-
 
     return (
       <Animated.View style={[styles.CardOuter, { opacity: startValue }]}>
@@ -47,29 +76,26 @@ const Slider = () => {
      borderRadius: 16,
      alignItems: "center",
      justifyContent: "center",
-     
    },
    buttonText: {
      color: "white",
      fontSize: 20,
-     fontWeight: "400",
+     fontFamily: "Roboto_400Regular",
    },
    header: {
-     fontWeight: "600",
      fontSize: 24,
-    //  paddingTop: 15,
+     //  paddingTop: 15,
      textAlign: "center",
+     fontFamily: "Roboto_500Medium",
    },
    text: {
-     fontWeight: "400",
-     fontStyle: "normal",
-     fontSize: 14, 
+    fontFamily: "Roboto_400Regular",
+     fontSize: 14,
      padding: 20,
      textAlign: "center",
      color: "rgba(0, 0, 0, 0.5)",
-     marginBottom:20
+     marginBottom: 20,
    },
-  
  });
  
  

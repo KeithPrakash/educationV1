@@ -1,11 +1,48 @@
-import { View, Text, StyleSheet, ScrollView,TextInput, Button, TouchableOpacity,Image} from "react-native";
+import { View, Text, StyleSheet, ScrollView,TextInput, Button, TouchableOpacity,Image,StatusBar} from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { LearnMoreLinks } from "react-native/Libraries/NewAppScreen";
+import AppLoading from "expo-app-loading";
+import {
+  useFonts,
+  Roboto_100Thin,
+  Roboto_100Thin_Italic,
+  Roboto_300Light,
+  Roboto_300Light_Italic,
+  Roboto_400Regular,
+  Roboto_400Regular_Italic,
+  Roboto_500Medium,
+  Roboto_500Medium_Italic,
+  Roboto_700Bold,
+  Roboto_700Bold_Italic,
+  Roboto_900Black,
+  Roboto_900Black_Italic,
+} from "@expo-google-fonts/roboto";
+
 
 export default function SignUp({navigation}) {
+  let [fontsLoaded] = useFonts({
+    Roboto_100Thin,
+    Roboto_100Thin_Italic,
+    Roboto_300Light,
+    Roboto_300Light_Italic,
+    Roboto_400Regular,
+    Roboto_400Regular_Italic,
+    Roboto_500Medium,
+    Roboto_500Medium_Italic,
+    Roboto_700Bold,
+    Roboto_700Bold_Italic,
+    Roboto_900Black,
+    Roboto_900Black_Italic,
+  });
     return (
       <ScrollView style={styles.container}>
+        <StatusBar
+          barStyle="dark-content"
+          color="black"
+          hidden={false}
+          backgroundColor={"#F1F1F1"}
+        />
         <View style={styles.TopTextOuter}>
           <Text style={styles.TopText}>Create an Account</Text>
         </View>
@@ -17,7 +54,7 @@ export default function SignUp({navigation}) {
                 textAlign: "left",
                 left: 18,
                 color: "#00000080",
-                fontSize: 16,
+                fontSize: 13,
               }}
             >
               Full Name
@@ -37,7 +74,8 @@ export default function SignUp({navigation}) {
                 textAlign: "left",
                 left: 18,
                 color: "#00000080",
-                fontSize: 16,
+                fontSize: 13,
+                fontFamily: "Roboto_400Regular",
               }}
             >
               Email Address
@@ -55,7 +93,8 @@ export default function SignUp({navigation}) {
                 textAlign: "left",
                 left: 18,
                 color: "#00000080",
-                fontSize: 16,
+                fontSize: 13,
+                fontFamily: "Roboto_400Regular",
               }}
             >
               Password
@@ -67,15 +106,31 @@ export default function SignUp({navigation}) {
             textAlign="left"
           />
           <TouchableOpacity style={styles.loginButton}>
-            <Text style={styles.LoginButtonText}>Sign Up</Text>
+            <Text
+              style={styles.LoginButtonText}
+              onPress={() => navigation.navigate("Main")}
+            >
+              Sign Up
+            </Text>
           </TouchableOpacity>
         </View>
         <View style={styles.createAcc}>
-          <Text style={{ fontSize: 16, color: "#004E3F" }}>
+          <Text
+            style={{
+              fontSize: 13,
+              color: "#004E3F",
+              fontFamily: "Roboto_400Regular",
+            }}
+          >
             Have an account?{" "}
             <Text onPress={() => navigation.navigate("Login")}>
               <Text
-                style={{ fontSize: 16, fontWeight: "bold", color: "#004E3F" }}
+                style={{
+                  fontSize: 13,
+                  fontWeight: "bold",
+                  color: "#004E3F",
+                  fontFamily: "Roboto_400Regular",
+                }}
               >
                 Login
               </Text>
@@ -110,14 +165,22 @@ export default function SignUp({navigation}) {
                 textAlign: "center",
                 opacity: 0.75,
                 width: 305,
-                fontSize:13
+                fontSize: 13,
+                fontFamily: "Roboto_400Regular",
               }}
             >
               By Sign Up to create an account I accept Grainweed’s
-              <Text style={{ color: "#004E3FBF" }}>
+              <Text
+                style={{ color: "#004E3FBF", fontFamily: "Roboto_400Regular" }}
+              >
                 Terms, Service, Privacy policy,{" "}
               </Text>
-              and <Text style={{ color: "#004E3FBF" }}>Honor code</Text>
+              and{" "}
+              <Text
+                style={{ color: "#004E3FBF", fontFamily: "Roboto_400Regular" }}
+              >
+                Honor code
+              </Text>
             </Text>
           </View>
         </View>
@@ -134,34 +197,35 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-end",
-    height: 180,
+    marginTop:120,
     // borderColor:"red",
     // borderWidth:1,
-    paddingBottom: 40,
+    paddingBottom: 32,
   },
   TopText: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 400,
   },
   textField: {
     borderRadius: 16,
     width: "100%",
-    height: 58,
-    margin: 7,
+    height: 56,
+    margin: 8,
     backgroundColor: "#ECECEC",
     paddingLeft: 16,
     fontSize: 16,
+    alignItems: "center",
   },
   form: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    marginLeft: 25,
-    marginRight: 25,
+    marginLeft: 24,
+    marginRight: 24,
   },
   loginButton: {
-    height: 58,
+    height: 56,
     width: "100%",
     display: "flex",
     alignItems: "center",
@@ -172,23 +236,23 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "white",
     letterSpacing: 1,
-    marginTop: 80,
+    marginTop: 64,
     borderRadius: 16,
   },
   LoginButtonText: {
-    fontWeight: "400",
-    fontSize: 20,
+    fontWeight: "600",
+    fontSize: 16,
     color: "white",
     letterSpacing: 1,
   },
   createAcc: {
-    paddingTop: 10,
+    paddingTop: 8,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
   },
   loginIcons: {
-    marginTop: 15,
+    marginTop: 16,
     height: 48,
     display: "flex",
     alignItems: "center",
@@ -204,7 +268,7 @@ const styles = StyleSheet.create({
   iconOuter: {
     padding: 12,
     backgroundColor: "#ECECEC",
-    margin: 7,
+    margin: 8,
     borderRadius: 16,
   },
   bottomDesc: {
@@ -215,8 +279,7 @@ const styles = StyleSheet.create({
     // borderWidth: 1,
     // borderColor: "red",
     marginTop: 5,
-    paddingTop:45,
-    padding: 50,
-    paddingBottom:30
+    paddingTop: 32,
+    paddingBottom: 24,
   },
 });
