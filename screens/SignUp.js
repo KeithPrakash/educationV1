@@ -110,6 +110,7 @@ export default function SignUp({navigation}) {
                 textAlign: "center",
                 opacity: 0.75,
                 width: 305,
+                fontSize:13
               }}
             >
               By Sign Up to create an account I accept Grainweed’s
@@ -139,7 +140,7 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
   TopText: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 400,
   },
   textField: {
@@ -214,6 +215,7 @@ const styles = StyleSheet.create({
     // borderWidth: 1,
     // borderColor: "red",
     marginTop: 5,
+    paddingTop:45,
     padding: 50,
     paddingBottom:30
   },

@@ -14,11 +14,12 @@ import * as React from "react";
 
 const Login = ({ navigation }) => {  
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}
+    >
       <View style={styles.topTextOuter}>
         <Text style={{ textAlign: "center", fontSize: 16, fontWeight: 400 }}>
-          {"  "}Take the greatest courses available online from renowned universities
-          and business partners.
+          {"  "}Take the greatest courses available online from renowned
+          universities and business partners.
         </Text>
       </View>
       <View style={styles.loginFormOuter}>
@@ -52,7 +53,7 @@ const Login = ({ navigation }) => {
                 left: 18,
                 color: "#000000",
                 fontSize: 16,
-                opacity: 0.5,                               
+                opacity: 0.5,
               }}
             >
               Password
@@ -63,7 +64,10 @@ const Login = ({ navigation }) => {
             textAlignVertical="top"
             textAlign="left"
           />
-          <TouchableOpacity style={styles.loginButton}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Main")}
+            style={styles.loginButton}
+          >
             <Text style={styles.LoginButtonText}>Login</Text>
           </TouchableOpacity>
         </SafeAreaView>
@@ -102,7 +106,15 @@ const Login = ({ navigation }) => {
       </View>
       <View style={styles.bottomDesc}>
         <View>
-          <Text style={{ color: "#000000BF", textAlign: "center",opacity:0.75 , width:305}}>
+          <Text
+            style={{
+              color: "#000000BF",
+              textAlign: "center",
+              opacity: 0.75,
+              width: 305,
+              fontSize:13
+            }}
+          >
             By Sign Up to create an account I accept Grainweed’s
             <Text style={{ color: "#004E3FBF" }}>
               Terms, Service, Privacy policy,{" "}
@@ -129,8 +141,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-end",
     fontWeight: 400,
-    height:250,
-    padding:80,
+    height: 250,
+    padding: 70,
     paddingBottom: 40,
     color: "black",
   },
@@ -168,7 +180,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "white",
     letterSpacing: 1,
-    marginTop: 20,
+    marginTop: 80,
     borderRadius: 16,
   },
   LoginButtonText: {
@@ -182,8 +194,6 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-
-
   },
   loginIcons: {
     marginTop: 15,
@@ -204,18 +214,19 @@ const styles = StyleSheet.create({
     backgroundColor: "#ECECEC",
     margin: 7,
     borderRadius: 16,
-  
   },
   bottomDesc: {
-    flex: 1, 
+    flex: 1,
 
-    alignItems:'center',
-    justifyContent:'center',
-    display: "flex",  
+    alignItems: "center",
+    justifyContent: "center",
+    display: "flex",
     // borderWidth: 1,
     // borderColor: "red",
-     marginTop:20,
-       padding:50
+    marginTop: 5,
+    paddingTop: 45,
+    padding: 50,
+    paddingBottom: 30,
   },
 });
 export default Login;
