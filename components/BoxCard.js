@@ -10,6 +10,7 @@ import {
   View,
 } from "react-native";
 import { Rating, AirbnbRating } from "react-native-ratings";
+import * as React from "react";
 import AppLoading from "expo-app-loading";
 import {
   useFonts,

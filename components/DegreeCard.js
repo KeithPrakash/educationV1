@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-
+import * as React from "react";
 import AppLoading from "expo-app-loading";
 import {
   useFonts,

@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { Rating, AirbnbRating } from "react-native-ratings";
 import AppLoading from "expo-app-loading";
+import * as React from "react";
 import {
   useFonts,
   Roboto_100Thin,
@@ -61,7 +62,7 @@ const FreeCourseCard = () => {
         <Text
           style={{
             fontSize: 11,
-            fontFamily: "Roboto_400Regular",
+            fontFamily:"Roboto_400Regular",
             opacity: 0.75,
           }}
         >
@@ -101,8 +102,8 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
-    paddingTop: 10,
-    paddingLeft:10,
+    paddingTop: 8,
+    paddingLeft:8,
  
   },
 });

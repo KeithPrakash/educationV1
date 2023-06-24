@@ -78,18 +78,18 @@ let [fontsLoaded] = useFonts({
      justifyContent: "center",
    },
    buttonText: {
+     fontFamily: "Roboto_400Regular",
      color: "white",
      fontSize: 20,
-     fontFamily: "Roboto_400Regular",
    },
    header: {
+     fontFamily: "Roboto_500Medium",
      fontSize: 24,
      //  paddingTop: 15,
      textAlign: "center",
-     fontFamily: "Roboto_500Medium",
    },
    text: {
-    fontFamily: "Roboto_400Regular",
+     fontFamily: "Roboto_400Regular",
      fontSize: 14,
      padding: 20,
      textAlign: "center",

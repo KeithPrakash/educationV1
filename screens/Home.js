@@ -332,7 +332,7 @@ function Home() {
             >
               <LinearGradient
                 // Background Linear Gradient
-                colors={["rgba(0,0,0,0)", "rgba(0,0,0,0.65)"]}
+                colors={["rgba(0,0,0,0)", "rgba(0,0,0,0.75)"]}
                 style={styles.gradient}
               >
                 <View style={styles.bannerInner}>
